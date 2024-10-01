@@ -117,7 +117,7 @@ nav {
   color: var(--white);
 }
 
-.nav_menu_btn {
+.nav__menu__btn {
   font-size: 1.5rem;
   color: var(--white);
   cursor: pointer;
@@ -199,7 +199,7 @@ header::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("assets/header-bg.jpg");
+  background-image: url("./assets/header-bg.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -264,7 +264,7 @@ header::before {
   background-color: var(--primary-color);
 }
 
-.destination_container :is(.sectionheader, .section_description) {
+.destination__container :is(.section__header, .section__description) {
   text-align: left;
   margin-inline-start: unset;
 }
@@ -280,7 +280,7 @@ header::before {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.destination_card_details {
+.destination__card__details {
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -288,14 +288,14 @@ header::before {
   gap: 1rem;
 }
 
-.destination_card_details h4 {
+.destination__card__details h4 {
   margin-bottom: 5px;
   font-size: 1.2rem;
   font-weight: 600;
   columns: var(--text-dark);
 }
 
-.destination_card_details p {
+.destination__card__details p {
   columns: var(--text-light);
 }
 
@@ -309,7 +309,7 @@ header::before {
   transition: 0.3s;
 }
 
-.destination_card:hover .destination_rating {
+.destination__card:hover .destination__rating {
   background-color: var(--primary-color-dark);
 }
 
@@ -326,27 +326,27 @@ header::before {
   overflow: hidden;
 }
 
-.journey_card_bg {
+.journey__card__bg {
   padding: 2rem;
   background-color: var(--extra-light);
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
 }
 
-.journey_card_bg span {
+.journey__card__bg span {
   display: inline-block;
   margin-bottom: 4rem;
   font-size: 1.75rem;
   color: var(--primary-color);
 }
 
-.journey_card_bg h4 {
+.journey__card__bg h4 {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-dark);
 }
 
-.journey_card_content {
+.journey__card__content {
   position: absolute;
   top: 100%;
   left: 0;
@@ -359,11 +359,11 @@ header::before {
   transition: 0.3s;
 }
 
-.journey_card:hover .journeycard_content {
+.journey__card:hover .journey__card__content {
   top: 0;
 }
 
-.journey_card_content span {
+.journey__card__content span {
   display: inline-block;
   margin-bottom: 1rem;
   padding: 7px 9px;
@@ -373,14 +373,14 @@ header::before {
   border-radius: 100%;
 }
 
-.journey_card_content h4 {
+.journey__card__content h4 {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--white);
 }
 
-.journey_card_content p {
+.journey__card__content p {
   color: var(--extra-light);
 }
 
@@ -414,7 +414,7 @@ header::before {
   padding: 1.5rem;
   font-weight: 600;
   color: var(--text-dark);
-  background-image: url("assets/header-bg.jpg");
+  background-image: url("./assets/header-bg.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -697,7 +697,7 @@ footer {
     color: var(--text-dark);
   }
 
-  .nav_menu_btn {
+  .nav__menu__btn {
     display: none;
   }
 
@@ -823,22 +823,22 @@ footer {
         <div class="nav__logo">
           <a href="#" class="logo">Ummeed</a>
         </div>
-        <div class="nav_menu_btn" id="menu-btn">
+        <div class="nav__menu__btn" id="menu-btn">
           <i class="ri-menu-line"></i>
         </div>
       </div>
       <ul class="nav__links" id="nav-links">
         <li><a href="ngo.html#home">HOME</a></li>
         <li><a href="ngo.html#games">DONATE</a></li>
-        <li><a href="ngo.html#games">CERTIFICATION</a></li>
-        <li><a href="ngo.html">PROJECTS</a></li>
-        <li><a href="ngo.html#package">ABOUT US</a></li>
-        <li><a href="ngo.html#contact">CONTACT</a></li>
+        <li><a href="./fundraising.html">FUNDRAISING</a></li>
+        <li><a href="./project.html">PROJECTS</a></li>
+        <li><a href="./mini.html">MINI VOLUNTEERING</a></li>
+        <li><a href="ngo.html#contact">Mini Volunteering</a></li>
         </ul>
 
       <div class="nav__btns">
         <button class="btn" >
-         <a href="login.html" > <p style="color: white;"> <i class="fa-solid fa-user"></i>  PROFILE</p></a> 
+         <a href="http://localhost:8000/prayaas/login" > <p style="color: white;"> <i class="fa-solid fa-user"></i>  PROFILE</p></a> 
         </button>
         
       </div>
@@ -860,18 +860,18 @@ footer {
     </header>
 
    
-    <section class="section_container journey_container" id="games">
+    <section class="section__container journey__container" id="games">
       <h2 class="section__header">Sustaining Communities Through Generosity</h2>
       <p class="section__description">
         Support Our Mission: Effortlessly Contribute Funds and Items to Make a Difference!
       </p>
       <div class="journey__grid">
         <div class="journey__card">
-          <div class="journey_card_bg">
+          <div class="journey__card__bg">
             <span><i class="ri-bookmark-3-line"></i></span>
             <h4>FOOD</h4>
           </div>
-          <div class="journey_card_content">
+          <div class="journey__card__content">
             
             <h4>Nourish Lives!      </h4>
             <p>
@@ -880,11 +880,11 @@ footer {
           </div>
         </div>
         <div class="journey__card">
-          <div class="journey_card_bg">
+          <div class="journey__card__bg">
             <span><i class="ri-landscape-fill"></i></span>
             <h4>FUNDS</h4>
           </div>
-          <div class="journey_card_content">
+          <div class="journey__card__content">
             
             <h4>Transform Lives!</h4>
             <p>
@@ -894,11 +894,11 @@ footer {
           </div>
         </div>
         <div class="journey__card">
-          <div class="journey_card_bg">
+          <div class="journey__card__bg">
             <span><i class="ri-map-2-line"></i></span>
             <h4>ITEMS</h4>
           </div>
-          <div class="journey_card_content">
+          <div class="journey__card__content">
             <h4>Uplift Communities!</h4>
             <p>
                 Your donations of clothing, stationery, and essential items support families in need. By giving, you ensure everyone has the resources they require. Join us in making a difference—your generosity transforms lives!
@@ -918,9 +918,9 @@ footer {
       
     </section>
 
-    <section class="section_container showcase_container" id="package">
+    <section class="section__container showcase__container" id="package">
       <div class="showcase__image">
-        <img src="assets/showcase.jpeg" alt="showcase" />
+        <img src="./assets/showcase.jpeg" alt="showcase" />
       </div>
       <div class="showcase__content">
         <h4>
@@ -946,7 +946,7 @@ footer {
   </a>
       </div>
       
-    <section class="section_container banner_container">
+    <section class="section__container banner__container">
       
       <div class="banner__card">
         <h4>1<sup>st</sup></h4>
@@ -963,7 +963,7 @@ footer {
     </section>
     </section>
 
-    <section class="section_container client_container">
+    <section class="section__container client__container">
       <h2 class="section__header">Celebrated by Thousands of Volunteers</h2>
       <p class="section__description">
         Explore the inspiring stories and proud achievements of our dedicated volunteers. See how Umeed has empowered them to make a lasting impact by supporting those in need and contributing to our mission of change.      </p>
@@ -988,7 +988,7 @@ footer {
                 </p>
               </div>
               <div class="client__details">
-                <img src="assets/client-1.jpeg" alt="client" />
+                <img src="./assets/client-1.jpeg" alt="client" />
                 <div>
                   <h4>Alisha Inamdar</h4>
                   <h5>Blogger</h5>
@@ -1013,7 +1013,7 @@ footer {
                 </p>
               </div>
               <div class="client__details">
-                <img src="assets/client-2.jpeg" alt="client" />
+                <img src="./assets/client-2.jpeg" alt="client" />
                 <div>
                   <h4>Aditi Surve</h4>
                   <h5>Comm. Service Enthusiast</h5>
@@ -1038,7 +1038,7 @@ footer {
 
               </div>
               <div class="client__details">
-                <img src="assets/client-3.jpeg" alt="client" />
+                <img src="./assets/client-3.jpeg" alt="client" />
                 <div>
                   <h4>Aarya Gurav</h4>
                   <h5>Educational Integrity Advocate
@@ -1064,7 +1064,7 @@ footer {
                 </p>
               </div>
               <div class="client__details">
-                <img src="assets/client-4.jpeg" alt="client" />
+                <img src="./assets/client-4.jpeg" alt="client" />
                 <div>
                   <h4>Devang Gupta</h4>
                   <h5>Board Executive</h5>
@@ -1076,6 +1076,7 @@ footer {
       </div>
     </section>
 
+    
 <!-- Contact Section -->
 <!-- Contact Section with Clean and Modern UI -->
 <section class="contact-section" id="contact" style="padding: 60px 0; background-color: #f9f9f9;">
@@ -1087,7 +1088,7 @@ footer {
         <div class="row">
             <div class="col-lg-12">
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                    <input type="hidden" name="access_key" value="2095abd4-41e1-4568-b994-70824a1e858e">
+                    <input type="hidden" name="access_key" value="9ac8a113-8d23-4096-9c92-ea270b8732f8">
 
                     <div class="row">
                         <div class="col-lg-6" style="margin-bottom: 20px;">
@@ -1095,7 +1096,7 @@ footer {
                             <input type="email" name="email" class="form-control" placeholder="Your Email" required style="width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc;">
                             <input type="tel" name="phone_number" class="form-control" placeholder="Mobile No." required style="width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc;">
                             <select name="donation" class="form-control" id="donation" required style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #ccc;">
-                                <option value="">Choose Donation or Wastage</option>
+                                <option value="">Choose Donation</option>
                                 <option value="food">Food</option>
                                 <option value="clothes">Clothes</option>
                                 <option value="footwear">Footwear</option>
@@ -1126,9 +1127,15 @@ footer {
 <!-- Required for hCaptcha -->
 <script src="https://web3forms.com/client/script.js" async defer></script>
 
+<iframe
+src="https://www.chatbase.co/chatbot-iframe/Xu3l1eViJB5_OZVaswQIq"
+width="100%"
+style="height: 0; min-height: 0"
+frameborder="0"
+></iframe>
 
     <footer id="contact">
-      <div class="section_container footer_container">
+      <div class="section__container footer__container">
         <div class="footer__col">
           <div class="footer__logo">
             <a href="#" class="logo">Ummeed Foundation.</a>
@@ -1181,8 +1188,9 @@ footer {
         </div>
         <div class="footer__col">
           <h4>Admin</h4>
-            <button class="btn">ADMIN</button>
-          </form>
+          <a href="http://localhost:8000/prayaas/admin/login">
+            <button class="btn"> ADMIN </button>
+          </a>          </form>
         </div>
       </div>
       <div class="footer__bar">
@@ -1278,6 +1286,19 @@ footer {
           spaceBetween: 20,
           loop: true,
         });
+
+        
+window.embeddedChatbotConfig = {
+chatbotId: "Xu3l1eViJB5_OZVaswQIq",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="Xu3l1eViJB5_OZVaswQIq"
+domain="www.chatbase.co"
+defer>
+
         </script>
   </body>
 </html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMEED Participation Certificate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #certificateContainer {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-image: url('./assets/mycertificate.jpg');
+            background-size: cover;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #participantName {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        input,
+        button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #buttonsContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #successModal .modal-content {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>UMMEED Participation Certificate Generator</h1>
+        <form id="certificateForm">
+            <input type="text" id="nameInput" placeholder="Enter participant's name" required>
+            <button type="submit">Generate Certificate</button>
+        </form>
+        <div id="certificateContainer">
+            <div id="participantName"></div>
+        </div>
+        <div id="buttonsContainer">
+            <button id="downloadBtn" class="action-button">Download Now</button>
+            <button id="shareBtn" class="action-button">Share Now</button>
+        </div>
+    </div>
+
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Share Certificate</h2>
+            <p>Enter the recipient's email address:</p>
+            <input type="email" id="emailInput" placeholder="example@email.com" required>
+            <button id="sendEmailBtn">Send</button>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Success!</h2>
+            <p>The mail has been sent successfully!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('certificateForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('participantName').textContent = name;
+            document.getElementById('certificateContainer').style.display = 'block';
+            document.getElementById('buttonsContainer').style.display = 'block';
+            generateCertificateImage();
+        });
+
+        function generateCertificateImage() {
+            const container = document.getElementById('certificateContainer');
+            html2canvas(container).then(canvas => {
+                // Store the canvas globally so we can access it in other functions
+                window.certificateCanvas = canvas;
+            });
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            if (window.certificateCanvas) {
+                const link = document.createElement('a');
+                link.download = 'UMEED_Certificate.png';
+                link.href = window.certificateCanvas.toDataURL();
+                link.click();
+            }
+        });
+
+        document.getElementById('shareBtn').addEventListener('click', function () {
+            if (window.certificateCanvas) {
+                document.getElementById('emailModal').style.display = 'block';
+            }
+        });
+
+        document.querySelector('.close').addEventListener('click', function () {
+            document.getElementById('emailModal').style.display = 'none';
+        });
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('emailModal')) {
+                document.getElementById('emailModal').style.display = 'none';
+            }
+        }
+
+        document.getElementById('sendEmailBtn').addEventListener('click', function () {
+            const email = document.getElementById('emailInput').value;
+            if (!email) {
+                alert('Email address is required to share the certificate.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Simulate sending email (replace this with actual email sending logic)
+            setTimeout(() => {
+                document.getElementById('emailModal').style.display = 'none';
+                document.getElementById('successModal').style.display = 'block';
+            }, 1000);
+        });
+
+        // Close button functionality for both modals
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function () {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        // Close modals when clicking outside
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</body>
+
+</html>
